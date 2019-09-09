@@ -13,4 +13,8 @@ for column in missing_data.columns.values.tolist():
     print(column)
     print(missing_data[column].value_counts())
     print('')
+
+df.dtypes
+#check total number of each neighbourhoood_group
+df['neighbourhood_group'].value_counts()
     
