@@ -19,3 +19,7 @@ Yhat = lr.predict(Z)
 Yhat[0:5]
 lr.intercept_
 lr.coef_
+
+#Model evaluation, refinement
+df= df._get_numeric_data()
+df.head()
