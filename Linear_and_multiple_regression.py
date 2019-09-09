@@ -32,3 +32,13 @@ from sklearn.model_selection import train_test_split
 x_train, x_test,y_train, y_test = train_test_split(x_data, y_data,test_size = 0.20,random_state = 1)
 x_test.shape[0]
 x_train.shape[0]
+
+#fitting and training the model
+lm.fit(x_train[['number_of_reviews', 'minimum_nights',
+                'availability_365', 'calculated_host_listings_count']], y_train)
+Yhat2 = lm.predict(x_test[['number_of_reviews', 'minimum_nights',
+                'availability_365', 'calculated_host_listings_count']])
+
+#comparing with actual values, the model does not perform very well in predicting prices
+
+Yhat2[0:5]
