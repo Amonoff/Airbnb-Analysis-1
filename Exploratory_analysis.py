@@ -38,6 +38,11 @@ df.head()
 X = df[['number_of_reviews','minimum_nights','availability_365']]
 X[0:5]
 
+#first convert data contained in X to floating values
+df['number_of_reviews'] = df['number_of_reviews'].astype(float)
+df['minimum_nights'] = df['minimum_nights'].astype(float)
+df['availability_365'] = df['availability_365'].astype(float)
+
 #let us stanfdardize because of different data units which have been combined
 from sklearn import preprocessing
 X = preprocessing.StandardScaler().fit_transform(X)
