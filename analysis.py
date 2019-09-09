@@ -42,3 +42,27 @@ X[0:5]
 from sklearn import preprocessing
 X = preprocessing.StandardScaler().fit_transform(X)
 X[0:5]
+
+#we can group by neighbourhood_group and room_type to see average prices are across each group
+df_1 = df[['room_type', 'neighbourhood_group', 'price']]
+group = df_1.groupby(['room_type', 'neighbourhood_group'], as_index= False).mean()
+group
+#we see that average price for an entire home/apt in Manhattan is the most expensive
+
+#arrange the data in a better and more presentable way
+pivot = group.pivot(index = 'neighbourhood_group', columns = 'room_type')
+pivot
+
+#we can calculate the ANOVA, so as to help us reject the null hypothesis
+from scipy import stats
+df_a = df[['neighbourhood_group', 'price']]
+df_b = df_a.groupby(['neighbourhood_group'])
+df_b.get_group('Queens')['price']
+f_test_score, p_value = stats.f_oneway(df_b.get_group('Queens')['price'],df_b.get_group('Bronx')['price'],
+                                      df_b.get_group('Brooklyn')['price'],df_b.get_group('Staten Island')['price'],
+                                       df_b.get_group('Manhattan')['price'])
+
+f_test_score, p_value
+#with such a high f_test score, we can confidently say that prices vary largely depending
+#on the neighbourhood_group
+#same goes for private rooms and shared rooms. Manhattan has generally the highest prices
