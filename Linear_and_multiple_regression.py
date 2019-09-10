@@ -56,3 +56,17 @@ train_y = np.asarray(train[['price']])
 lm.fit(train_x, train_y)
 lm.intercept_
 lm.coef_
+
+'''we can compute MSE, MAE and rsquared scores.MSE will help us know whether our model is fit
+for use. We want to see how close the regression points are, to the line of best-fit'''
+#MSE is generally small, meaning number_of_reviews is a good predictor of price
+from sklearn.metrics import r2_score
+test_x = np.asanyarray(test[['number_of_reviews']])
+test_y = np.asanyarray(test[['price']])
+test_y_ = lm.predict(test_x)
+
+print("Mean Absolute Error is:",np.mean(np.absolute(test_y_ - test_y)))
+print("Mean Squared Error is:" ,np.mean(test_y_ - test_y)**2)
+print("r squared score is:" ,r2_score(test_y_, test_y))
+
+
