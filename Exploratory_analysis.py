@@ -59,6 +59,7 @@ pivot = group.pivot(index = 'neighbourhood_group', columns = 'room_type')
 pivot
 
 #we can calculate the ANOVA, so as to help us reject the null hypothesis
+#the null hypothesis here can be; prices are almost equal in every neighbourhood_group
 from scipy import stats
 df_a = df[['neighbourhood_group', 'price']]
 df_b = df_a.groupby(['neighbourhood_group'])
