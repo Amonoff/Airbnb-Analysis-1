@@ -46,6 +46,7 @@ predicted_price[0:5]
 y = df[['number_of_reviews', 'minimum_nights',
                 'availability_365', 'calculated_host_listings_count', 'price']]
 
+#number_of_reviews is the independent variable
 msk = np.random.rand(len(df)) < 0.7
 train = y[msk]
 test = y[~msk]
