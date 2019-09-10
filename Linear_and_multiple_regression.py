@@ -41,6 +41,9 @@ predicted_price = lm.predict(x_test[['number_of_reviews', 'minimum_nights',
 
 #comparing with actual values, the model does not perform very well in predicting prices
 predicted_price[0:5]
+#intercept and coefficients for our eqaution;
+lm.intercept_
+lm.coef_
 
 #linear regression, using train and test data
 y = df[['number_of_reviews', 'minimum_nights',
