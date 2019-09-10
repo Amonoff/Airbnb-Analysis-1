@@ -41,3 +41,17 @@ predicted_price = lm.predict(x_test[['number_of_reviews', 'minimum_nights',
 
 #comparing with actual values, the model does not perform very well in predicting prices
 predicted_price[0:5]
+
+#linear regression, using train and test data
+y = df[['number_of_reviews', 'minimum_nights',
+                'availability_365', 'calculated_host_listings_count', 'price']]
+
+msk = np.random.rand(len(df)) < 0.7
+train = y[msk]
+test = y[~msk]
+lm
+train_x = np.asarray(train[['number_of_reviews']])
+train_y = np.asarray(train[['price']])
+lm.fit(train_x, train_y)
+lm.intercept_
+lm.coef_
