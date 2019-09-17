@@ -26,6 +26,7 @@ df.head()
 
 #split data into training and testing sets
 #I will use 20 percent of the data for testing
+lm = LinearRegression()
 y_data = df['price']
 x_data = df.drop('price', axis = 1)
 from sklearn.model_selection import train_test_split
