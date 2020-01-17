@@ -56,6 +56,7 @@ X = np.reshape(X,(-1 , 1))
 Y = np.reshape(Y,(-1 , 1))
 
 x_train , x_test, y_train , y_test = train_test_split(X, Y, test_size = 0.3)
+LR.fit(x_train , y_train)
 
 
 '''we can compute MSE, MAE and rsquared scores.MSE will help us know whether our model is fit
