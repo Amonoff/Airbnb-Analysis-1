@@ -47,19 +47,11 @@ lm.intercept_
 lm.coef_
 
 #linear regression, using train and test data
-y = df[['number_of_reviews', 'minimum_nights',
-                'availability_365', 'calculated_host_listings_count', 'price']]
-
-#number_of_reviews is the independent variable
-msk = np.random.rand(len(df)) < 0.7
-train = y[msk]
-test = y[~msk]
-lm
-train_x = np.asarray(train[['number_of_reviews']])
-train_y = np.asarray(train[['price']])
-lm.fit(train_x, train_y)
-lm.intercept_
-lm.coef_
+X = df['minimum_nights']
+Y = df['price']
+x_train , y_train , x_test, y_test = train_test_split(X, Y, test_size = 0.3)
+x_train
+y_train
 
 '''we can compute MSE, MAE and rsquared scores.MSE will help us know whether our model is fit
 for use. We want to see how close the regression points are, to the line of best-fit'''
